@@ -19,7 +19,7 @@ class RadioTest extends MockTest
     private $radio;
 
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

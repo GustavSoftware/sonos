@@ -123,6 +123,9 @@ class Queue implements QueueInterface
     public function count(): int
     {
         $data = $this->browse("DirectChildren");
+        if(!$data || !isset($data["TotalMatches"])) {
+            return 0;
+        }
         return (int) $data["TotalMatches"];
     }
 
@@ -171,9 +174,12 @@ class Queue implements QueueInterface
     {
         $data = $this->browse("DirectChildren");
 
-        $this->updateId = $data["UpdateID"];
-
-        return $data["TotalMatches"] + 1;
+        if($data) {
+            $this->updateId = $data["UpdateID"];
+            return $data["TotalMatches"] + 1;
+        }
+        $this->updateId = 0;
+        return 1;
     }
 
 

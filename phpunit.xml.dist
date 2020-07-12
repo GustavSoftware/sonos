@@ -1,5 +1,5 @@
 <phpunit bootstrap="tests/bootstrap.php">
-    <testsuite>
+    <testsuite name="SonosTests">
         <directory suffix="Test.php">tests</directory>
     </testsuite>
     <filter>

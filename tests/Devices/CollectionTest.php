@@ -13,14 +13,14 @@ class CollectionTest extends TestCase
     private $factory;
     private $collection;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->factory = Mockery::mock(FactoryInterface::class);
         $this->collection = new Collection($this->factory);
     }
 
 
-    public function tearDown()
+    public function tearDown(): void
     {
         Mockery::close();
     }
